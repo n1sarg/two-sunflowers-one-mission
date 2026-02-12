@@ -1,0 +1,7 @@
+anthropic 
+pydantic 
+instructor 
+rich 
+streamlit 
+fpdf2 
+python-dotenv
