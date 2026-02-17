@@ -61,13 +61,87 @@ load_dotenv()
 client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 
+message = client.messages.create(
+   model ="claude-sonnet-4-5",
+   max_tokens = 200,
+   messages = [
+      {
+         "role": "user",
+         "content": "I love my babies, they are funny, kind, and sweet!"      
+         }
+   ]
+)
+
+input_tokens = message.usage.input_tokens
+output_tokens = message.usage.output_tokens 
+
+pricing = {"claude-sonnet-4-5": {"input_price": 1.00, "output_price": 5.00}}
+
+model_name = "claude-sonnet-4-5"
+cost = (input_tokens / 1_000_000 * pricing[model_name]["input_price"]) + \
+   (output_tokens / 1_000_000 * pricing[model_name]["output_price"])
+
+print(f"Model: {model_name}")
+print(f"Input tokens: {input_tokens}")
+print(f"Output tokens: {output_tokens}")
+print(f"Cost: ${cost:.6f}")
+
+
+
+
+
+
+
+
+# message = client.messages.create(
+#    model ="claude-opus-4-6",
+#    max_tokens = 200,
+#    messages = [
+#       {
+#          "role": "user",
+#          "content": "I love my babies, they are funny, kind, and sweet!"      
+#          }
+#    ]
+# )
+
+# input_tokens = message.usage.input_tokens
+# output_tokens = message.usage.output_tokens 
+
+# pricing = {"claude-opus-4-6": {"input_price": 15.00, "output_price": 75.00}}
+
+# model_name = "claude-opus-4-6"
+# cost = (input_tokens / 1_000_000 * pricing[model_name]["input_price"]) + \
+#    (output_tokens / 1_000_000 * pricing[model_name]["output_price"])
+
+# print(f"Model: {model_name}")
+# print(f"Input tokens: {input_tokens}")
+# print(f"Output tokens: {output_tokens}")
+# print(f"Cost: ${cost:.6f}")
+
+
+# terminal output:
+# Model: claude-opus-4-6
+# Input tokens: 21
+# Output tokens: 85
+# Cost: $0.006465
+
+
+
+
+
+
+
+
+
 # Pricing dictionary — fill this in from the table above!
 # TODO: Create a dictionary that maps model names to their pricing
-# pricing = {
-#     "claude-haiku-4-5": {"input": ???, "output": ???},
-#     "claude-sonnet-4-5-20250929": {"input": ???, "output": ???},
-#     "claude-opus-4-6": {"input": ???, "output": ???},
+#  pricing = 
+#     "claude-haiku-4-5": {"input_price": 1.00, "output_price": 5.00}"
+#     "claude-sonnet-4-5-20250929": {"input": 3.00, "output": 15.00},
+#     "claude-opus-4-6": {"input": 15.00, "output": 75.00},
 # }
+
+
 
 
 # ============ PART 1: Basic Token Counting ============
@@ -76,8 +150,9 @@ client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 # message = client.messages.create(...)
 
 # TODO: Extract token counts from message.usage
-# input_tokens = ???
-# output_tokens = ???
+# input_tokens = 42
+# output_tokens = 156
+
 
 # TODO: Calculate cost
 # cost = ???
@@ -126,3 +201,63 @@ client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 💡 The cheapest option was claude-haiku-4-5 at $0.00025
 💡 The most expensive was 16x more costly!
 """
+
+
+pricing = {
+    "claude-haiku-4-5": {"input_price": 1.00, "output_price": 5.00},
+    "claude-sonnet-4-5-20250929": {"input_price": 3.00, "output_price": 15.00},
+    "claude-opus-4-6": {"input_price": 15.00, "output_price": 75.00},
+}
+
+
+def estimate_cost(prompt, model, system_prompt="You are a helpful assistant."):
+    message = client.messages.create(
+        model=model,
+        max_tokens=200,
+        system=system_prompt,
+        messages=[
+            {
+                "role": "user",
+                "content": prompt,
+            }
+        ],
+    )
+
+    input_tokens = message.usage.input_tokens
+    output_tokens = message.usage.output_tokens
+
+    cost = (input_tokens / 1_000_000 * pricing[model]["input_price"]) + (
+        output_tokens / 1_000_000 * pricing[model]["output_price"]
+    )
+
+    return {
+        "model": model,
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "cost": cost,
+    }
+
+
+prompt = "Write a haiku about Python programming"
+
+models = [
+    "claude-haiku-4-5",
+    "claude-sonnet-4-5-20250929",
+    "claude-opus-4-6",
+]
+
+results = []
+
+for model in models:
+    print(f"Testing {model}...")
+    result = estimate_cost(prompt, model)
+    results.append(result)
+
+print("\n--- Cost Comparison ---")
+
+for result in results:
+    print(f"Model: {result['model']}")
+    print(f"Input tokens: {result['input_tokens']}")
+    print(f"Output tokens: {result['output_tokens']}")
+    print(f"Cost: ${result['cost']:.6f}")
+    print("---")

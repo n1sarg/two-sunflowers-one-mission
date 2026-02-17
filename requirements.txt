@@ -1,7 +1,8 @@
-anthropic 
-pydantic 
-instructor 
-rich 
-streamlit 
-fpdf2 
+anthropic
+pydantic
+instructor
+rich
+streamlit
+fpdf2
 python-dotenv
+langchain-anthropic

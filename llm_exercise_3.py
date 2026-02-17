@@ -68,18 +68,18 @@ client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 # ============ PART 1: Basic Streaming ============
 
 # TODO: Ask user for a topic
-# topic = input(...)
+topic = input(Good mood)
 
 # TODO: Use client.messages.stream() to generate a poem
 # The syntax is:
-#   with client.messages.stream(
-#       model="claude-sonnet-4-5-20250929",
-#       max_tokens=512,
-#       system="your system prompt",
-#       messages=[{"role": "user", "content": "your prompt"}]
-#   ) as stream:
-#       for text in stream.text_stream:
-#           print(text, end="", flush=True)
+  with client.messages.stream(
+      model="claude-sonnet-4-5-20250929",
+      max_tokens=512,
+      system="your system prompt",
+      messages=[{"role": "user", "content": "your prompt"}]
+  ) as stream:
+      for text in stream.text_stream:
+          print(text, end="", flush=True)
 
 
 
@@ -87,14 +87,14 @@ client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 # TODO: Use Rich to make the streaming output beautiful
 # HINT: You'll need:
-#   from rich.console import Console
-#   from rich.live import Live
-#   from rich.panel import Panel
-#   from rich.text import Text
+  from rich.console import Console
+  from rich.live import Live
+  from rich.panel import Panel
+  from rich.text import Text
 #
 # Approach:
 #   1. Create an empty Text object
-#   2. Use Live(panel, ...) as the display
+   Use Live(panel, ...) as the display
 #   3. In the stream loop, append each chunk to the Text object
 #   4. Update the panel inside the Live context
 

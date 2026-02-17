@@ -21,6 +21,11 @@ Instructions:
 4. Print the results for each temperature so you can compare them side by side
 5. BONUS: Use Rich panels to make the output beautiful! (See Part 3 of hello_llm.py)
 
+
+
+
+
+
 Tips:
 -----
 - The prompt should ask for SHORT, creative playlist names
@@ -52,15 +57,72 @@ console = Console()
 client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 
+
+
+# prompts = [
+#   "write a short joke about a zoo animal"
+#   "write a joke about a baby"
+#   "write a joke about an old person"
+# ]
+
+
+# Panel = []
+# for i, prompt in enumerate(prompts):
+#   message = client.messages.create(
+#     model ="claude-sonnet-4-5-20250929",
+#     max_tokens = 250,
+#     system = "You are a funny storyteller. Your task is to tell funny stories only.",
+#     messages = [{"role": "user", "content":prompt}]
+#   )
+# print(message.content[0].text)
+
+
+
+
+
+
+
+
+
+
 # ============ YOUR CODE STARTS HERE ============
 
 # Step 1: Ask the user for a mood
 # TODO: Use input() to ask for a mood
-# mood = ???
+mood = input("Enter mood: ")
+
+
 
 # Step 2: Define your temperatures to test
 # TODO: Create a list of temperatures
-# temperatures = ???
+temps = [0.0, 0.5, 1.0]
+
+
+
+for temp in temps:
+    print("running temp:", temp)
+
+    message = client.messages.create(
+        model="claude-sonnet-4-5",
+        temperature=temp,
+        max_tokens=200,
+        system=f"Your task is to generate a playlist based on a given mood by user. Generate exactly 3 short playlist names for a {mood} mood.",
+        messages=[
+            {
+                "role": "user",
+                "content": mood,
+            }
+        ],
+    )
+
+    text = message.content[0].text
+
+    print("\nMODEL OUTPUT:")
+    print(text)
+
+
+
+
 
 # Step 3: Loop through each temperature and generate playlist names
 # TODO: For each temperature:
@@ -71,10 +133,15 @@ client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 #   c) Store the result
 #   d) Print or display it
 
+
+
+
+
 # Step 4 Optional: Display the results in a better way
 # TODO: Print the results for each temperature
 # BONUS: Use Rich panels (Panel + Columns) to display them side by side!
 # Hint: Look at Part 3 of hello_llm.py for how to use panels
+
 
 # ============ YOUR CODE ENDS HERE ============
 
