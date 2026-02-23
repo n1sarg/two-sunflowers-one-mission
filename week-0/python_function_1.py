@@ -25,9 +25,9 @@ Tip: Read docs/python-warmups/python_functions_guide.md first!
 #   say_hello()  →  "Hello, World!"
 # ============================================================
 
-# YOUR CODE HERE
-
-
+# say_hello()
+#     "Hello, world!"
+# print(say_hello)
 
 # ============================================================
 # EXERCISE 2: Personalised Greeting
@@ -40,9 +40,10 @@ Tip: Read docs/python-warmups/python_functions_guide.md first!
 #   greet("James")  →  "Hello, James!"
 # ============================================================
 
-# YOUR CODE HERE
-
-
+def greet(name):
+    return (f"Hello, {name}!")
+greet("Sarah")
+greet("James")
 
 # ============================================================
 # EXERCISE 3: Add Two Numbers
@@ -56,8 +57,12 @@ Tip: Read docs/python-warmups/python_functions_guide.md first!
 #   add(-1, 1)   →  0
 # ============================================================
 
-# YOUR CODE HERE
+def add(a, b):
+    return a + b
 
+print(add(3, 5))
+print(add(10, 20))
+print(add(-1, 1))
 
 
 # ============================================================
@@ -72,12 +77,16 @@ Tip: Read docs/python-warmups/python_functions_guide.md first!
 #   double(-3)  →  -6
 # ============================================================
 
-# YOUR CODE HERE
+def double (a,):
+    return a * 2
+print(double(5))
+print(double(0))
+print(double(-3))
 
 
 
 # ============================================================
-# EXERCISE 5: Is It Even?
+# EX, CISE 5: Is It Even?
 # ============================================================
 # Write a function called 'is_even' that takes a number
 # and RETURNS True if it's even, False if it's odd.
@@ -92,7 +101,11 @@ Tip: Read docs/python-warmups/python_functions_guide.md first!
 #   is_even(0)   →  True
 # ============================================================
 
-# YOUR CODE HERE
+def is_even (number):
+    return number % 2 == 0
+print(is_even(4))
+print(is_even(7))
+print(is_even(0))
 
 
 
@@ -110,7 +123,11 @@ Tip: Read docs/python-warmups/python_functions_guide.md first!
 #   shout("python")    →  "PYTHON!"
 # ============================================================
 
-# YOUR CODE HERE
+def shout (words):
+    return words.upper() + "!"
+print(shout("hello"))
+print(shout("goodbye"))
+print(shout("python"))
 
 
 
@@ -126,8 +143,11 @@ Tip: Read docs/python-warmups/python_functions_guide.md first!
 #   first_letter("A")       →  "A"
 # ============================================================
 
-# YOUR CODE HERE
-
+def first_letter (words):
+    return words[0]
+print(first_letter("python"))
+print(first_letter("hello"))
+print(first_letter("A"))
 
 
 # ============================================================
@@ -145,7 +165,13 @@ Tip: Read docs/python-warmups/python_functions_guide.md first!
 #   count_words("supercalifragilistic") →  1
 # ============================================================
 
-# YOUR CODE HERE
+def count_words (words):
+    words = words.split()
+    return len(words)
+print(count_words("hello world"))
+print(count_words("I love python"))
+print(count_words("supercalifragilistic"))
+
 
 
 
@@ -164,7 +190,14 @@ Tip: Read docs/python-warmups/python_functions_guide.md first!
 #   absolute(0)    →  0
 # ============================================================
 
-# YOUR CODE HERE
+def absolute (a):
+    if a < 0:
+         return a * -1
+    else:
+        return a
+print(absolute(5))
+print(absolute(-5))
+print(absolute(0))
 
 
 
@@ -180,7 +213,11 @@ Tip: Read docs/python-warmups/python_functions_guide.md first!
 #   repeat("!", 5)     →  "!!!!!"
 # ============================================================
 
-# YOUR CODE HERE
+def repeat (words, number):
+    return words * number
+print(repeat("ha", 3))
+print(repeat("ab", 2))
+print(repeat("!", 5))
 
 
 
