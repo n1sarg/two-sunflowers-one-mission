@@ -25,9 +25,10 @@ Tip: Read docs/python-warmups/python_functions_guide.md first!
 #   say_hello()  →  "Hello, World!"
 # ============================================================
 
-# say_hello()
-#     "Hello, world!"
-# print(say_hello)
+def say_hello():
+    message = "Hello, world!"
+    return message
+print(say_hello)
 
 # ============================================================
 # EXERCISE 2: Personalised Greeting
