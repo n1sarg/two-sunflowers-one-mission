@@ -27,7 +27,10 @@ Run: python python_functions_3_returns.py
 # ============================================================
 
 # YOUR CODE HERE
-
+def print_sum(a, b):
+    sum = a + b
+    print(sum)
+    return sum
 
 
 # ============================================================
@@ -47,7 +50,10 @@ Run: python python_functions_3_returns.py
 # ============================================================
 
 # YOUR CODE HERE
-
+def min_and_max(number_list):
+    min_number = min(number_list)
+    max_number = max(number_list)
+    return min_number, max_number
 
 
 # ============================================================
@@ -69,7 +75,17 @@ Run: python python_functions_3_returns.py
 # ============================================================
 
 # YOUR CODE HERE
-
+def get_grade(score):
+    if score in range(90,101):
+        return ("A", "Excellent!")
+    elif score in range(80,89):
+        return ("B", "Great job!")
+    elif score in range(70,79):
+        return ("C", "Good effort!")
+    elif score in range(60,69):
+        return ("D", "Needs improvement")
+    else:
+        return ("F", "Keep trying!")
 
 
 # ============================================================
@@ -91,7 +107,19 @@ Run: python python_functions_3_returns.py
 # ============================================================
 
 # YOUR CODE HERE
+def count_letters(text):
+    vowels = {"a", "e", "i", "o", "u"} 
+    vowel_count = 0
+    consonants_count = 0
 
+    for char in text.lower():
+        if char.isalpha():
+            if char in vowels:
+                vowel_count += 1
+            else: 
+                consonants_count += 1
+
+    return {"vowels": vowel_count, "consonants": consonants_count}
 
 
 # ============================================================
@@ -114,7 +142,15 @@ Run: python python_functions_3_returns.py
 # ============================================================
 
 # YOUR CODE HERE
-
+def fizzbuzz(number):
+    if number % 3 == 0 and number % 5 == 0:
+        return "FizzBuzz"
+    elif number % 3 == 0:
+        return "Fizz"
+    elif number % 5 == 0:
+        return "Buzz"
+    else:
+        return str(number)
 
 
 # ============================================================
@@ -139,6 +175,25 @@ Run: python python_functions_3_returns.py
 # ============================================================
 
 # YOUR CODE HERE
+def get_initials(full_name):
+    words = full_name.split()
+    initials = ""
+
+    for word in words:
+        initials += word[0]
+
+    return initials
+
+def make_username(full_name, number):
+    initials = get_initials(full_name)
+    username = initials.lower() + str(number)
+    return username
+
+def make_email(full_name, number, domain="example.com"):
+    username = make_username(full_name, number)
+    email = username + "@" + domain
+    return email
+
 
 
 
@@ -166,7 +221,27 @@ Run: python python_functions_3_returns.py
 # ============================================================
 
 # YOUR CODE HERE
+def analyse_text(text):
+    words_list = text.split()
+    length = len(text)
+    words = len(words_list)
+    sentences = 0
+    
+    for char in text:
+        if char in ".!?":
+            sentences += 1
+    
+    total_chars = sum(len(word) for word in words_list)
+    avg_word_length = round(total_chars / words, 1)
 
+    result = {
+        "length": length,
+        "words": words,
+        "sentences": sentences,
+        "avg_word_length": avg_word_length
+    }
+
+    return result
 
 
 # ============================================================
@@ -192,6 +267,15 @@ Run: python python_functions_3_returns.py
 # ============================================================
 
 # YOUR CODE HERE
+def validate_password(password):
+    if len(password) < 8:
+        return (False,"Too short")
+    elif int in password:
+        return (False, "Needs a number")
+    elif not any(word.isupper() for word in password):
+        return (False, "Needs uppercase")
+    else: 
+        return (True, "Strong password")
 
 
 

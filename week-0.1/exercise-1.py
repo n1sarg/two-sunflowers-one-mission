@@ -47,8 +47,28 @@ import os
 # ============================================================
 
 # YOUR CODE HERE
+def safe_divide(a, b):
+    answer = a/b
+    try:
+        if b == 0:
+            return 0
+        elif  not int(b):
+            return 0
+    except: 
+        print("ValueError")
 
 
+def safe_int(value, default=0):
+    try:
+        return int(value) 
+    except:
+        return default
+
+def safe_index(lst, index, default=None):
+    if index not in range(4):
+        return default
+    if not list(lst) or int(index):
+        return default
 
 # ============================================================
 # EXERCISE 2: The `as e` Pattern — Accessing Error Details
@@ -79,7 +99,7 @@ import os
 # ============================================================
 
 # YOUR CODE HERE
-
+def describe_error()
 
 
 # ============================================================

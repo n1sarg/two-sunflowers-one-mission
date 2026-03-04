@@ -1,3 +1,4 @@
+
 """
 Python Functions Practice 1 — The Basics
 =============================================
@@ -25,10 +26,12 @@ Tip: Read docs/python-warmups/python_functions_guide.md first!
 #   say_hello()  →  "Hello, World!"
 # ============================================================
 
+# YOUR CODE HERE
 def say_hello():
-    message = "Hello, world!"
-    return message
-print(say_hello)
+    say_hello = "Hello, World!"
+    return say_hello
+
+
 
 # ============================================================
 # EXERCISE 2: Personalised Greeting
@@ -41,10 +44,10 @@ print(say_hello)
 #   greet("James")  →  "Hello, James!"
 # ============================================================
 
+# YOUR CODE HERE
 def greet(name):
     return (f"Hello, {name}!")
-greet("Sarah")
-greet("James")
+
 
 # ============================================================
 # EXERCISE 3: Add Two Numbers
@@ -58,12 +61,9 @@ greet("James")
 #   add(-1, 1)   →  0
 # ============================================================
 
+# YOUR CODE HERE
 def add(a, b):
     return a + b
-
-print(add(3, 5))
-print(add(10, 20))
-print(add(-1, 1))
 
 
 # ============================================================
@@ -78,16 +78,13 @@ print(add(-1, 1))
 #   double(-3)  →  -6
 # ============================================================
 
-def double (a,):
+# YOUR CODE HERE
+def double (a):
     return a * 2
-print(double(5))
-print(double(0))
-print(double(-3))
-
 
 
 # ============================================================
-# EX, CISE 5: Is It Even?
+# EXERCISE 5: Is It Even?
 # ============================================================
 # Write a function called 'is_even' that takes a number
 # and RETURNS True if it's even, False if it's odd.
@@ -102,12 +99,12 @@ print(double(-3))
 #   is_even(0)   →  True
 # ============================================================
 
-def is_even (number):
-    return number % 2 == 0
-print(is_even(4))
-print(is_even(7))
-print(is_even(0))
-
+# YOUR CODE HERE
+def is_even(a):
+    if a % 2 == 0:
+        return True
+    else:
+        return False
 
 
 # ============================================================
@@ -124,12 +121,9 @@ print(is_even(0))
 #   shout("python")    →  "PYTHON!"
 # ============================================================
 
-def shout (words):
-    return words.upper() + "!"
-print(shout("hello"))
-print(shout("goodbye"))
-print(shout("python"))
-
+# YOUR CODE HERE
+def shout(a):
+    return a.upper() + "!"
 
 
 # ============================================================
@@ -144,11 +138,9 @@ print(shout("python"))
 #   first_letter("A")       →  "A"
 # ============================================================
 
-def first_letter (words):
-    return words[0]
-print(first_letter("python"))
-print(first_letter("hello"))
-print(first_letter("A"))
+# YOUR CODE HERE
+def first_letter(a):
+    return a
 
 
 # ============================================================
@@ -166,13 +158,9 @@ print(first_letter("A"))
 #   count_words("supercalifragilistic") →  1
 # ============================================================
 
-def count_words (words):
-    words = words.split()
-    return len(words)
-print(count_words("hello world"))
-print(count_words("I love python"))
-print(count_words("supercalifragilistic"))
-
+# YOUR CODE HERE
+def count_words(words):
+    return len(words.split())
 
 
 
@@ -191,15 +179,9 @@ print(count_words("supercalifragilistic"))
 #   absolute(0)    →  0
 # ============================================================
 
-def absolute (a):
-    if a < 0:
-         return a * -1
-    else:
-        return a
-print(absolute(5))
-print(absolute(-5))
-print(absolute(0))
-
+# YOUR CODE HERE
+def absolute(words):
+    return abs(words)
 
 
 # ============================================================
@@ -214,12 +196,9 @@ print(absolute(0))
 #   repeat("!", 5)     →  "!!!!!"
 # ============================================================
 
-def repeat (words, number):
+# YOUR CODE HERE
+def repeat(words, number):
     return words * number
-print(repeat("ha", 3))
-print(repeat("ab", 2))
-print(repeat("!", 5))
-
 
 
 # ============================================================

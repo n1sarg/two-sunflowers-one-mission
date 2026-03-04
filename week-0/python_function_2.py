@@ -24,7 +24,8 @@ Run: python python_functions_2_parameters.py
 #   greet("James", "Hey")         →  "Hey, James!"
 # ============================================================
 
-# YOUR CODE HERE
+def greet(name,greeting="Hello"):
+    return f"{greeting}, {name}!"
 
 
 
@@ -50,8 +51,17 @@ Run: python python_functions_2_parameters.py
 # ============================================================
 
 # YOUR CODE HERE
+def make_tea (tea_type, sugars=1, milk=True):
+    if sugars < 1:
+        sugar = "no sugar"
+    else:
+        sugar = "sugars"
+    if milk:
+        milk_s = "milk"
+    else: 
+        milk_s = "no milk"
 
-
+    return f"{tea_type} tea with {sugar} and {milk}"
 
 # ============================================================
 # EXERCISE 3: Calculate Rectangle
@@ -71,7 +81,10 @@ Run: python python_functions_2_parameters.py
 # ============================================================
 
 # YOUR CODE HERE
-
+def rectangle_info(length, width):
+    area = length * width
+    perimeter = 2 * (length + width)
+    return {"area": area, "perimeter": perimeter}
 
 
 # ============================================================
@@ -94,8 +107,11 @@ Run: python python_functions_2_parameters.py
 # ============================================================
 
 # YOUR CODE HERE
-
-
+def convert_temp(temp, from_unit="C"):
+    if from_unit == "C":
+        return (temp * 9 / 5) + 32
+    else:
+        return (temp - 32) * 5 / 9
 
 # ============================================================
 # EXERCISE 5: String Sandwich
@@ -122,7 +138,8 @@ Run: python python_functions_2_parameters.py
 # ============================================================
 
 # YOUR CODE HERE
-
+def sandwich(filling, bread="---"):
+   return f"{bread}\n{filling}\n{bread}"
 
 
 # ============================================================
@@ -144,6 +161,8 @@ Run: python python_functions_2_parameters.py
 # ============================================================
 
 # YOUR CODE HERE
+def power(base, exponent=2):
+    return base ** exponent 
 
 
 
@@ -168,7 +187,8 @@ Run: python python_functions_2_parameters.py
 # ============================================================
 
 # YOUR CODE HERE
-
+def format_price(amount, currency="£", decimals=2):
+    return f"{currency}{amount:.{decimals}f}"
 
 
 # ============================================================
@@ -193,6 +213,16 @@ Run: python python_functions_2_parameters.py
 # ============================================================
 
 # YOUR CODE HERE
+def full_name(first, last, middle=None, title=None):
+    if title == None:
+        return first, middle, last
+    else:
+        return title, first, middle, last
+
+    if middle == None:
+        return title, first, last
+    else:
+        return title, first, middle, last
 
 
 
@@ -221,7 +251,13 @@ Run: python python_functions_2_parameters.py
 # ============================================================
 
 # YOUR CODE HERE
-
+def clamp(value, minimum=0, maximum=100):
+    if value < minimum:
+        return minimum
+    if value > maximum:
+        return maximum
+    else:
+        return value
 
 
 # ============================================================
@@ -248,13 +284,18 @@ Run: python python_functions_2_parameters.py
 # ============================================================
 
 # YOUR CODE HERE
+def describe(name, age, **traits):
+    description = f"{name} is {age} years old. {traits}."
+    for key, value in traits.item(traits):
+        describe =+ f"{key}: {value}." 
+    return discription
+
 
 
 
 # ============================================================
 # 🧪 TESTS
 # ============================================================
-
 if __name__ == "__main__":
     passed = 0
     failed = 0
