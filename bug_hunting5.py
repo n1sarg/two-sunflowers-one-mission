@@ -19,7 +19,7 @@ Run: python debug_5_loops.py
 
 def count_to_five():
     result = []
-    for i in range(5):
+    for i in range(1, 6):
         result.append(i)
     return result
 
@@ -34,7 +34,8 @@ def count_to_five():
 def double_all(numbers):
     result = []
     for num in numbers:
-        doubled = num * 2
+        doubled = num * 2 
+        result.append(doubled)
     return result
 
 
@@ -47,9 +48,9 @@ def double_all(numbers):
 # ============================================================
 
 def total(numbers):
-    for num in numbers:
-        total = 0
-        total = total + num
+    total = 0
+    for num in numbes:
+        total = num + 1
     return total
 
 
@@ -67,8 +68,8 @@ def find(target, numbers):
     for num in numbers:
         if num == target:
             return True
-        else:
-            return False
+    else:
+        return False
 
 
 # ============================================================
@@ -82,7 +83,7 @@ def find(target, numbers):
 def reverse(text):
     result = ""
     for letter in text:
-        result = result + letter
+        result = letter + result
     return result
 
 
@@ -97,7 +98,7 @@ def reverse(text):
 def keep_positive(numbers):
     result = []
     for num in numbers:
-        if num < 0:
+        if num > 0:
             result.append(num)
     return result
 
@@ -112,7 +113,7 @@ def keep_positive(numbers):
 
 def number_items(items):
     result = []
-    for i, item in enumerate(items):
+    for i, item in enumerate(items,1):
         result.append(f"{i}. {item}")
     return result
 
@@ -128,7 +129,7 @@ def number_items(items):
 def flatten(lists):
     result = []
     for sublist in lists:
-        result.append(sublist)
+        result.extend(sublist)
     return result
 
 
@@ -143,7 +144,7 @@ def flatten(lists):
 def join_words(words):
     result = ""
     for word in words:
-        result = result + "-" + word
+        result = result + word + "-"
     return result
 
 
@@ -157,7 +158,7 @@ def join_words(words):
 
 def skip_every_other(items):
     result = []
-    for i in range(1, len(items), 2):
+    for i in range(0, len(items), 2):
         result.append(items[i])
     return result
 
@@ -172,7 +173,7 @@ def skip_every_other(items):
 def find_max(numbers):
     biggest = numbers[0]
     for num in numbers:
-        if num < biggest:
+        if num > biggest:
             biggest = num
     return biggest
 
@@ -187,7 +188,7 @@ def find_max(numbers):
 def build_string(numbers):
     result = ""
     for num in numbers:
-        result = result + num
+        result = result + str(num)
     return result
 
 

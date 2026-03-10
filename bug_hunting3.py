@@ -19,7 +19,7 @@ Run: python debug_3_functions.py
 # ============================================================
 
 def greet(name):
-    print(f"Hello, {name}!")
+    return (f"Hello, {name}!")
 
 
 # ============================================================
@@ -32,6 +32,7 @@ def greet(name):
 
 def double(number):
     result = number * 2
+    return result
 
 
 # ============================================================
@@ -45,7 +46,7 @@ def double(number):
 def apply_discount(price, percent):
     discount = price * percent / 100
     final = price - discount
-    return price
+    return final
 
 
 # ============================================================
@@ -56,7 +57,7 @@ def apply_discount(price, percent):
 # HINT: Give the parameter a default value.
 # ============================================================
 
-def welcome(name):
+def welcome(name="World"):
     return f"Hello, {name}!"
 
 
@@ -71,7 +72,7 @@ def welcome(name):
 # ============================================================
 
 def check_password(password):
-    return len(password) > 0
+    return len(password) > 8
 
 
 # ============================================================
@@ -83,7 +84,7 @@ def check_password(password):
 # ============================================================
 
 def calculate_tip(bill, tip_percent):
-    return bill / tip_percent * 100
+    return bill * tip_percent / 100
 
 
 # ============================================================
@@ -96,10 +97,13 @@ def calculate_tip(bill, tip_percent):
 # ============================================================
 
 def initials(full_name):
-    result = ""
     words = full_name.split()
+    result = ""
+    
     for word in words:
-        return word[0]
+        result += word[0]   
+    
+    return result
 
 
 # ============================================================
@@ -111,10 +115,10 @@ def initials(full_name):
 # ============================================================
 
 def classify(number):
-    if number >= 0:
-        return "positive"
-    elif number == 0:
+    if number == 0:
         return "zero"
+    elif number >= 0:
+        return "positive"
     else:
         return "negative"
 
@@ -131,7 +135,7 @@ def add_one(x):
     return x + 1
 
 def multiply_result(func, value, factor):
-    return func * factor
+    return func(value) * factor
 
 
 # ============================================================
@@ -141,7 +145,7 @@ def multiply_result(func, value, factor):
 # HINT: Look at the parameter names vs how they are used.
 # ============================================================
 
-def repeat_string(times, text):
+def repeat_string(times=3, text="ab"):
     return text * times
 
 
@@ -152,7 +156,7 @@ def repeat_string(times, text):
 # ============================================================
 
 def wrap(text, wrapper):
-    return wrapper + text
+    return wrapper + text + wrapper
 
 
 # ============================================================
@@ -167,8 +171,7 @@ def count_positives(numbers):
     count = 0
     for num in numbers:
         if num > 0:
-            pass
-    count = count + 1
+            count = count + 1
     return count
 
 

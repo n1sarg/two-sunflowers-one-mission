@@ -16,7 +16,7 @@ Run: python debug_2_collections.py
 
 def build_team():
     team = ["Cherish"]
-    team.apend("Aurora")
+    team.append("Aurora")
     team.append("PupPup")
     return team
 
@@ -29,7 +29,7 @@ def build_team():
 # ============================================================
 
 def last_item(items):
-    return items[0]
+    return items[2]
 
 
 # ============================================================
@@ -41,7 +41,7 @@ def last_item(items):
 # ============================================================
 
 def has_many(items):
-    return len(items) >= 3
+    return len(items) > 3
 
 
 # ============================================================
@@ -53,7 +53,7 @@ def has_many(items):
 # ============================================================
 
 def get_role(character):
-    return character["Role"]
+    return character["role"]
 
 
 # ============================================================
@@ -65,7 +65,7 @@ def get_role(character):
 # ============================================================
 
 def safe_lookup(data, key):
-    return data[key]
+    return data.get(key, "unknown")
 
 
 # ============================================================
@@ -78,7 +78,7 @@ def safe_lookup(data, key):
 
 def count_to_five():
     result = []
-    for i in range(5):
+    for i in range(1,6):
         result.append(i)
     return result
 
@@ -94,7 +94,6 @@ def count_to_five():
 def add_all(numbers):
     total = 0
     for num in numbers:
-        total = 0
         total = total + num
     return total
 
@@ -109,12 +108,12 @@ def add_all(numbers):
 # ============================================================
 
 def grade_check(score):
+    if score >= 90:
+        return "A"
+    if score >= 80:
+        return "B"
     if score >= 70:
         return "C"
-    elif score >= 80:
-        return "B"
-    elif score >= 90:
-        return "A"
     else:
         return "F"
 
@@ -128,7 +127,7 @@ def grade_check(score):
 
 def find_word(word, word_list):
     for item in word_list:
-        if word == item:
+        if word.lower() == item.lower():
             return True
     return False
 
@@ -140,7 +139,7 @@ def find_word(word, word_list):
 # ============================================================
 
 def make_character(name, role, age):
-    return {"name": name, "rloe": role, "age": age}
+    return {"name": name, "role": role, "age": age}
 
 
 # ============================================================
@@ -153,7 +152,7 @@ def make_character(name, role, age):
 def biggest(numbers):
     winner = numbers[0]
     for num in numbers:
-        if num < winner:
+        if num > winner:
             winner = num
     return winner
 
@@ -169,7 +168,7 @@ def biggest(numbers):
 def count_vowels(word):
     count = 0
     for letter in word:
-        if letter in "aeiou":
+        if letter.lower() in "aeiou":
             count = count + 1
     return count
 

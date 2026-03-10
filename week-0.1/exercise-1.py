@@ -44,31 +44,26 @@ import os
 #   safe_index("not a list", 0) → None
 #
 # HINT: Use (ValueError, TypeError) to catch multiple types.
-# ============================================================
+ # ============================================================
 
 # YOUR CODE HERE
 def safe_divide(a, b):
-    answer = a/b
     try:
-        if b == 0:
-            return 0
-        elif  not int(b):
-            return 0
-    except: 
-        print("ValueError")
-
+        return a / b
+    except (ZeroDivisionError, TypeError):
+        return 0
 
 def safe_int(value, default=0):
     try:
         return int(value) 
-    except:
+    except (ValueError, TypeError):
         return default
 
 def safe_index(lst, index, default=None):
-    if index not in range(4):
-        return default
-    if not list(lst) or int(index):
-        return default
+    try:
+        return lst[index]
+    except (TypeError, IndexError):
+        return defult
 
 # ============================================================
 # EXERCISE 2: The `as e` Pattern — Accessing Error Details
@@ -99,7 +94,11 @@ def safe_index(lst, index, default=None):
 # ============================================================
 
 # YOUR CODE HERE
-def describe_error()
+def describe_error(value):
+    try:
+        if value:
+            return 
+
 
 
 # ============================================================

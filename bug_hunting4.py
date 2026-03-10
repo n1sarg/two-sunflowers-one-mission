@@ -18,7 +18,7 @@ Run: python debug_4_if_else.py
 # ============================================================
 
 def age_gate(age):
-    if age > 18:
+    if age >= 18:
         return "adult"
     else:
         return "minor"
@@ -35,7 +35,7 @@ def age_gate(age):
 # ============================================================
 
 def weather(raining):
-    if not raining:
+    if raining:
         return "bring umbrella"
     else:
         return "enjoy the sun"
@@ -51,7 +51,7 @@ def weather(raining):
 # ============================================================
 
 def login(username, password):
-    if username == "admin" or password == "secret":
+    if username == "admin" and password == "secret":
         return "welcome"
     else:
         return "denied"
@@ -69,7 +69,7 @@ def login(username, password):
 def temp_check(temp):
     if temp < 10:
         return "cold"
-    elif temp > 30:
+    elif temp > 25:
         return "hot"
     else:
         return "warm"
@@ -85,7 +85,7 @@ def temp_check(temp):
 # ============================================================
 
 def pass_or_fail(score):
-    if score > 50:
+    if score >= 50:
         return "pass"
     elif score < 50:
         return "fail"
@@ -104,10 +104,10 @@ def pass_or_fail(score):
 def ticket_price(age):
     if age < 12:
         return 5
-    elif age >= 12:
-        return 10
     elif age >= 65:
         return 7
+    else:
+        return 10
 
 
 # ============================================================
@@ -119,7 +119,7 @@ def ticket_price(age):
 # ============================================================
 
 def check_empty(items):
-    if items == 0:
+    if len(items) == 0:
         return "empty"
     else:
         return "has items"
@@ -134,7 +134,7 @@ def check_empty(items):
 # ============================================================
 
 def sign(number):
-    if number >= 0:
+    if number > 0:
         return "positive"
     elif number < 0:
         return "negative"
@@ -151,7 +151,7 @@ def sign(number):
 # ============================================================
 
 def vowel_check(letter):
-    if letter in "aeiou":
+    if letter.lower() in "aeiou":
         return "vowel"
     else:
         return "consonant"
@@ -168,7 +168,7 @@ def vowel_check(letter):
 # ============================================================
 
 def between(number):
-    if number >= 1 or number <= 10:
+    if number >= 1 and number <= 10:
         return True
     else:
         return False
@@ -183,7 +183,7 @@ def between(number):
 # ============================================================
 
 def divisible(number):
-    if number % 3 == 0 or number % 5 == 0:
+    if number % 3 == 0 and number % 5 == 0:
         return True
     else:
         return False
@@ -201,9 +201,9 @@ def divisible(number):
 
 def not_equal(a, b):
     if a == b:
-        return "different"
-    else:
         return "same"
+    else:
+        return "different"
 
 
 # ============================================================

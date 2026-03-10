@@ -22,7 +22,7 @@ Run: python debug_6_try_except.py
 def safe_divide(a, b):
     try:
         return a / b
-    except ValueError:
+    except ZeroDivisionError:
         return "cannot divide by zero"
 
 
@@ -35,7 +35,10 @@ def safe_divide(a, b):
 # ============================================================
 
 def to_int(text):
-    return int(text)
+    try:
+        return int(text)
+    except:
+        return 0
 
 
 # ============================================================
@@ -51,7 +54,7 @@ def to_int(text):
 def safe_get(items, index):
     try:
         return items[index]
-    except KeyError:
+    except IndexError:
         return "not found"
 
 
@@ -68,6 +71,8 @@ def read_file(filename):
     try:
         with open(filename) as f:
             content = f.read()
+        return content
+    
     except FileNotFoundError:
         return "file not found"
 
@@ -84,7 +89,7 @@ def get_value(data, key, default):
     try:
         return data[key]
     except KeyError:
-        return key
+        return default
 
 
 # ============================================================
@@ -100,11 +105,12 @@ def get_value(data, key, default):
 def parse_age(text):
     try:
         age = int(text)
+        if age < 0:
+            return "invalid age"
         return age
     except ValueError:
-        return "not a number"
-    if age < 0:
-        return "invalid age"
+            return "not a number"
+
 
 
 # ============================================================
@@ -120,9 +126,9 @@ def parse_age(text):
 def calculate(a_text, operator, b_text):
     try:
         a = int(a_text)
+        b = int(b_text)
     except ValueError:
         return "bad number"
-    b = int(b_text)
     if operator == "+":
         return a + b
     elif operator == "-":
@@ -144,7 +150,7 @@ def square_root(number):
     try:
         return math.sqrt(number)
     except ValueError:
-        pass
+        return "cannot square root negative"
 
 
 # ============================================================
@@ -165,7 +171,10 @@ def do_work(should_fail):
             raise Exception("something broke")
         result = "done"
     except Exception:
+        pass
+    finally:    
         is_closed = True
+        
     return (result, is_closed)
 
 
@@ -181,8 +190,8 @@ def do_work(should_fail):
 import json
 
 def parse_json(text):
-    result = json.loads(text)
     try:
+        result = json.loads(text)
         return result
     except json.JSONDecodeError:
         return {}
@@ -205,7 +214,7 @@ def multi(text):
     except ValueError:
         return "not a number"
     except ZeroDivisionError:
-        return "not a number"
+        return "cannot divide by zero"
 
 
 # ============================================================
@@ -223,8 +232,11 @@ def smart_convert(text):
         return int(text)
     except ValueError:
         pass
-    float(text)
-    return "could not convert"
+    
+    try:
+        return float(text)
+    except:
+        return "could not convert"
 
 
 # ============================================================

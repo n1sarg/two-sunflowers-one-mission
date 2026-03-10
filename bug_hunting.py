@@ -20,7 +20,7 @@ TIP: Read the error message Python gives you.
 # ============================================================
 
 def greeting():
-    mesage = "Hello, Cherish!"
+    message = "Hello, Cherish!"
     return message
 
 
@@ -33,7 +33,7 @@ def greeting():
 # ============================================================
 
 def birth_year(age):
-    year = age - 2026
+    year = 2026 - age
     return year
 
 
@@ -44,7 +44,7 @@ def birth_year(age):
 # ============================================================
 
 def full_name(first, title):
-    result = first + title
+    result = first + " the " + title
     return result
 
 
@@ -57,7 +57,7 @@ def full_name(first, title):
 # ============================================================
 
 def price_tag(price):
-    result = "The book costs " + price + " pounds"
+    result = "The book costs " + str(price) + " pounds"
     return result
 
 
@@ -68,7 +68,7 @@ def price_tag(price):
 # ============================================================
 
 def word_length(word):
-    return len(word) - 1
+    return len(word) - 0
 
 
 # ============================================================
@@ -79,7 +79,7 @@ def word_length(word):
 # ============================================================
 
 def to_fahrenheit(celsius):
-    return celsius * 9 / (5 + 32)
+    return (celsius * 9 / 5 + 32)
 
 
 # ============================================================
@@ -90,7 +90,7 @@ def to_fahrenheit(celsius):
 # ============================================================
 
 def repeat_laugh():
-    return "ha" + 3
+    return "ha" * 3
 
 
 # ============================================================
@@ -103,7 +103,7 @@ def repeat_laugh():
 # ============================================================
 
 def make_upper(word):
-    word.upper()
+    word = word.upper()
     return word
 
 
@@ -116,7 +116,7 @@ def make_upper(word):
 # ============================================================
 
 def describe(name, age):
-    return "{name} is {age} years old"
+    return f"{name} is {age} years old"
 
 
 # ============================================================
@@ -126,7 +126,7 @@ def describe(name, age):
 # ============================================================
 
 def half_of(number):
-    return number * 2
+    return number / 2
 
 
 # ============================================================
@@ -137,7 +137,7 @@ def half_of(number):
 # ============================================================
 
 def first_letter(name):
-    return name[-1]
+    return name[-0]
 
 
 # ============================================================
@@ -150,7 +150,7 @@ def first_letter(name):
 # ============================================================
 
 def is_even(number):
-    return number % 2 == 1
+    return number % 2 == 0
 
 
 # ============================================================

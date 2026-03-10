@@ -76,6 +76,17 @@ messages=[{"role": "user", "content": question}]
 )
 print(f"🔮 Claude speaks: {message.content[0].text}")
 
+def ai_calling(input_text):
+    message = client.messages.create(
+    model="claude-sonnet-4-5-20250929",
+    max_tokens=256,
+    temperature=0.5,
+    system="You are a mystical oracle. Give dramatic, mysterious one-sentence answers.",
+    messages=[{"role": "user", "content": input_text}]
+    )
+    return message.content[0].text}
+
+
 
 
 # ============ PART - 2 Now lets use multiple prompts at once ============
