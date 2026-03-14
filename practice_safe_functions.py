@@ -48,6 +48,11 @@ Let's go!
 # ============================================================
 
 # YOUR CODE HERE
+def double(a):
+    try:
+        return a * 2
+    except: 
+        return "Can not double"
 
 
 
@@ -69,7 +74,16 @@ Let's go!
 # ============================================================
 
 # YOUR CODE HERE
-
+def ticket_price(age):
+    try:
+        if age < 12:
+            return 5
+        elif age <= 64:
+            return 15
+        else:
+            return 8
+    except: 
+        return "Please enter a valid age"
 
 
 # ============================================================
@@ -88,7 +102,14 @@ Let's go!
 # ============================================================
 
 # YOUR CODE HERE
-
+def is_whole(a):
+    try:
+        if a % 1 == 0:
+            return True
+        else:
+            return False
+    except:
+        return "Please enter a valid number"
 
 
 # ============================================================
@@ -108,6 +129,7 @@ Let's go!
 # error you named, Python jumps to "except" instead of
 # crashing your whole program.
 # ============================================================
+
 
 
 # ============================================================
@@ -130,7 +152,11 @@ Let's go!
 # ============================================================
 
 # YOUR CODE HERE
-
+def to_number(s):
+    try:
+        return int(s)
+    except ValueError:
+        return 0
 
 
 # ============================================================
@@ -151,8 +177,11 @@ Let's go!
 # ============================================================
 
 # YOUR CODE HERE
-
-
+def safe_divide(a, b):
+    try:
+        return a / b 
+    except ZeroDivisionError:
+        return "cannot divide by zero"
 
 # ============================================================
 # EXERCISE 6: Safe List Grabber
@@ -172,7 +201,11 @@ Let's go!
 # ============================================================
 
 # YOUR CODE HERE
-
+def grab(lst, index):
+    try:
+        return lst[index]
+    except IndexError:
+        return "not found"
 
 
 # ============================================================
@@ -210,7 +243,15 @@ Let's go!
 # ============================================================
 
 # YOUR CODE HERE
+def calculate_tip(bill_text, tip_percent_text):
+    try:
+        bill = float(bill_text)
+        tip_percent = float(tip_percent_text)
 
+        tip = bill * (tip_percent / 100)
+        return round(tip, 2)
+    except ValueError:
+        return "invalid input"
 
 
 # ============================================================
@@ -237,7 +278,13 @@ Let's go!
 
 # YOUR CODE HERE
 
-
+def to_celsius(fahrenheit):
+    try:
+        f = float(fahrenheit)
+        celsius = (f - 32) * 5 / 9
+        return round(celsius, 1)
+    except ValueError:
+        return "bad temperature"
 
 # ============================================================
 # EXERCISE 9: Grade Calculator
@@ -271,7 +318,25 @@ Let's go!
 # ============================================================
 
 # YOUR CODE HERE
+def get_grade(score):
+    try:
+        score = float(score)
 
+        if score < 0 or score > 100:
+            return "out of range"
+        elif 90 <= score <= 100:
+            return "A"
+        elif 80 <= score <= 89:
+            return "B"
+        elif 70 <= score <= 79:
+            return "C"
+        elif 60 <= score <= 69:
+            return "D"
+        else:
+            return "F"
+
+    except:
+        return "invalid score"
 
 
 # ============================================================
@@ -303,6 +368,19 @@ Let's go!
 # ============================================================
 
 # YOUR CODE HERE
+def apply_discount(price_text, discount_text):
+    try:
+        price = float(price_text)
+        discount = float(discount_text)
+
+        if discount < 0 or discount > 100:
+            return "bad discount"
+
+        final_price = price * (1 - discount  / 100)
+        return round(final_price, 2)
+       
+    except ValueError:
+        return "invalid input" 
 
 
 
@@ -344,7 +422,26 @@ Let's go!
 # ============================================================
 
 # YOUR CODE HERE
-
+def mini_calc(a_text, operator, b_text):
+    try:
+        a = float(a_text)
+        b = float(b_text)
+        if b == 0 and operator =="/":
+            return "cannot divide by zero"
+        else:
+            if operator == "+":
+                return a + b
+            elif operator == "-":
+                return a - b
+            elif operator == "*":
+                return a * b
+            elif operator == "/":
+                return a / b
+            else:
+                return "unknown operator"
+    except ValueError:
+        return "bad number"
+            
 
 
 # ============================================================
@@ -378,7 +475,17 @@ Let's go!
 # ============================================================
 
 # YOUR CODE HERE
-
+def withdraw(balance, amount_text):
+    try: 
+        amount = float(amount_text)
+        if amount == 0 or amount <0:
+            return ("must be positive", balance)
+        elif amount > balance:
+            return ("insufficient funds", balance)
+        else:
+            return ("success", balance - amount)
+    except:
+        return ("invalid amount", balance)
 
 
 # ============================================================
