@@ -25,7 +25,7 @@ less boilerplate and focus on the creative parts.
 ## 📦 Installation
 
 ```bash
-pip install langchain langchain-anthropic langchain-openai langchain-community
+pip install langchain-anthropic langchain-community
 ```
 
 We install the core + provider-specific packages separately.
@@ -224,27 +224,31 @@ characters = chain.invoke({"genre": "sci-fi"})
 
 ## 🗺️ How LangChain Fits Into Our Storybook Project
 
-| Storybook Feature | LangChain Component |
-|-------------------|---------------------|
-| Story generation with themes/genres | Prompt Templates |
-| Outline → Characters → Chapters | Chains |
-| Loading reference stories | Document Loaders |
-| Getting typed chapter data | Output Parsers |
-| "Chat with your storybook" | Document Loaders + Text Splitters + QA Chain |
-| Multi-model support | Swappable Chat Models |
+
+| Storybook Feature                   | LangChain Component                          |
+| ----------------------------------- | -------------------------------------------- |
+| Story generation with themes/genres | Prompt Templates                             |
+| Outline → Characters → Chapters     | Chains                                       |
+| Loading reference stories           | Document Loaders                             |
+| Getting typed chapter data          | Output Parsers                               |
+| "Chat with your storybook"          | Document Loaders + Text Splitters + QA Chain |
+| Multi-model support                 | Swappable Chat Models                        |
+
 
 ---
 
 ## ⚡ LangChain vs Raw API — When to Use Which?
 
-| Situation | Use Raw API | Use LangChain |
-|-----------|-------------|---------------|
-| Simple single prompt | ✅ | Overkill |
-| Learning how APIs work | ✅ | Hides too much |
-| Multi-step pipeline | Lots of boilerplate | ✅ |
-| Swapping between providers | Rewrite everything | ✅ One-line change |
-| Loading documents/PDFs | Write it yourself | ✅ Built-in loaders |
-| Complex workflows | Gets messy fast | ✅ Clean abstractions |
+
+| Situation                  | Use Raw API         | Use LangChain        |
+| -------------------------- | ------------------- | -------------------- |
+| Simple single prompt       | ✅                   | Overkill             |
+| Learning how APIs work     | ✅                   | Hides too much       |
+| Multi-step pipeline        | Lots of boilerplate | ✅                    |
+| Swapping between providers | Rewrite everything  | ✅ One-line change    |
+| Loading documents/PDFs     | Write it yourself   | ✅ Built-in loaders   |
+| Complex workflows          | Gets messy fast     | ✅ Clean abstractions |
+
 
 **Our approach in this course:** Learn raw APIs first (so you understand
 what's happening), then graduate to LangChain when the complexity justifies it.
@@ -253,8 +257,8 @@ what's happening), then graduate to LangChain when the complexity justifies it.
 
 ## 🔗 Useful Links
 
-- LangChain Docs: https://python.langchain.com/docs/
-- LangChain Hub (shared prompts): https://smith.langchain.com/hub
-- LangSmith (debugging/tracing): https://smith.langchain.com/
+- LangChain Docs: [https://python.langchain.com/docs/](https://python.langchain.com/docs/)
+- LangChain Hub (shared prompts): [https://smith.langchain.com/hub](https://smith.langchain.com/hub)
+- LangSmith (debugging/tracing): [https://smith.langchain.com/](https://smith.langchain.com/)
 
 *You'll get hands-on with all of this in Exercise 05!* 🛠️
