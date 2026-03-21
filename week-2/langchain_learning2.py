@@ -30,6 +30,40 @@ print(response.content)
 
 ############## Chatbot using LangChain #################
 
+""""
+What Does This Code Do?
+It loads a movie script from the internet, gives it
+to an AI, and lets you ask questions about it in a chat.
+That's it. You type a question, the AI reads the script and answers you.
+Like having a friend who has perfect memory of every line in the film.
+
+
+Remember the conversation:
+The chatbot keeps a list of every message,your and the AI's.
+Each time you ask a new question, it sends the ENTIRE conversation
+history back to the AI. This means the AI remembers what you talked
+about earlier.
+Without this, every question would be like talking to someone with
+amnesia, they would forget your previous questions instantly.
+
+SystemMessage -> Instructions we give the AI -> A job description, what it is and what it is not allowed to do.
+HumanMessage -> The user's question -> The question the user is asking.
+AIMessage -> The AI's response -> The answer the AI is giving.
+
+ChatHistory -> The list of all the messages, your and the AI's.
+
+while True creates an infinite loop, the chatbot keeps running
+forever until you tell it to stop.
+
+input("You: ") Shows "You: " and waits for you to type
+.strip() — Removes any extra spaces from the start/end
+
+If you type "exit" (in any case), stop the chatbot.
+.lower() converts to lowercase so "EXIT", "Exit", "exit" all work.
+break exits the while True loop.
+
+""""
+
 
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_anthropic import ChatAnthropic
